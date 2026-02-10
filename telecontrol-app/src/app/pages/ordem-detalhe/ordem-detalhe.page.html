@@ -1,0 +1,49 @@
+<ion-header class="tc-header">
+  <ion-toolbar class="tc-toolbar">
+    <ion-title>Detalhes da OS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="tc-container">
+    <ion-spinner *ngIf="loading"></ion-spinner>
+
+    <ion-text color="danger" *ngIf="error">
+      <p>{{ error }}</p>
+    </ion-text>
+
+    <div *ngIf="!loading && ordem">
+      <div class="tc-card">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h2 class="tc-title" style="font-size: 1.15rem;">{{ ordem.numero }}</h2>
+          <span class="tc-badge">{{ ordem.status }}</span>
+        </div>
+        <p class="tc-subtitle">{{ ordem.data_abertura }}</p>
+
+        <div style="margin-top: 10px;">
+          <p style="margin:0;"><b>Consumidor:</b> {{ ordem.consumidor }}</p>
+          <p style="margin:6px 0 0 0;"><b>CPF:</b> {{ ordem.cpf }}</p>
+          <p style="margin:6px 0 0 0;"><b>Produto:</b> {{ ordem.produto?.nome }} ({{ ordem.produto?.codigo }})</p>
+        </div>
+      </div>
+
+      <div class="tc-field">
+        <ion-item>
+          <ion-label position="stacked">Defeito reclamado</ion-label>
+          <ion-textarea [(ngModel)]="defeito" autoGrow="true"></ion-textarea>
+        </ion-item>
+      </div>
+
+      <div class="tc-field">
+        <ion-item>
+          <ion-label position="stacked">Solução do técnico</ion-label>
+          <ion-textarea [(ngModel)]="solucao" autoGrow="true"></ion-textarea>
+        </ion-item>
+      </div>
+
+      <ion-button color="primary" expand="block" class="tc-primary-btn" (click)="salvar()" [disabled]="saving">
+        {{ saving ? 'Salvando...' : 'Salvar atualização' }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

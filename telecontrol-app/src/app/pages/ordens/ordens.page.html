@@ -1,0 +1,39 @@
+<ion-header class="tc-header">
+  <ion-toolbar class="tc-toolbar">
+    <ion-title>Ordens Abertas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="tc-container">
+    <div class="tc-card" style="margin-bottom: 14px;">
+      <h2 class="tc-title" style="font-size: 1.1rem;">Painel do técnico</h2>
+      <p class="tc-subtitle">Selecione uma OS para preencher defeito e solução.</p>
+    </div>
+
+    <ion-spinner *ngIf="loading"></ion-spinner>
+
+    <ion-text color="danger" *ngIf="error">
+      <p>{{ error }}</p>
+    </ion-text>
+
+    <div class="tc-list" *ngIf="!loading">
+      <ion-item button *ngFor="let o of ordens" (click)="abrir(o)">
+        <ion-label>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2 style="margin:0;">{{ o.numero }}</h2>
+            <span class="tc-badge">{{ o.status }}</span>
+          </div>
+          <p style="margin:6px 0 0 0;">{{ o.consumidor }} • {{ o.cpf }}</p>
+          <p style="margin:4px 0 0 0; color: var(--tc-muted);">
+            {{ o.produto?.nome }} ({{ o.produto?.codigo }})
+          </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-text *ngIf="ordens.length === 0">
+        <p>Nenhuma ordem aberta encontrada.</p>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

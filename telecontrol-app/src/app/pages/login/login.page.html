@@ -1,0 +1,35 @@
+<ion-header class="tc-header">
+  <ion-toolbar class="tc-toolbar">
+    <ion-title>Telecontrol</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="tc-container">
+    <div class="tc-card">
+      <h1 class="tc-title">Acesso técnico</h1>
+      <p class="tc-subtitle">Entre para consultar e atualizar ordens de serviço.</p>
+
+      <div class="tc-field">
+        <ion-item>
+          <ion-label position="stacked">E-mail</ion-label>
+          <ion-input [(ngModel)]="email" type="email"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="tc-field">
+        <ion-item>
+          <ion-label position="stacked">Senha</ion-label>
+          <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-text color="danger" *ngIf="error">
+        <p class="ion-padding-top">{{ error }}</p>
+      </ion-text>
+
+      <ion-button color="primary" expand="block" class="tc-primary-btn" (click)="entrar()" [disabled]="loading">
+        {{ loading ? 'Entrando...' : 'Entrar' }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

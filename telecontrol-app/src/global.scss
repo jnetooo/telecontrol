@@ -1,0 +1,192 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Global styles for the entire Ionic app
+ */
+
+/* Core CSS required for Ionic components */
+@import "@ionic/angular/css/core.css";
+
+/* Force light mode */
+:root {
+  color-scheme: light;
+
+  /* Telecontrol Design Tokens */
+  --tc-radius: 14px;
+  --tc-gap: 14px;
+  --tc-card: #ffffff;
+  --tc-border: rgba(0, 0, 0, 0.1);
+  --tc-muted: rgba(0, 0, 0, 0.62);
+  --tc-title: #0b1220;
+}
+
+/* Ionic base styles */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional Ionic utilities */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* DO NOT import any dark mode palette */
+
+/* ---------- Layout ---------- */
+
+ion-content {
+  --padding-top: 14px;
+  --padding-bottom: 18px;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Header / Toolbar (Telecontrol) */
+ion-header ion-toolbar {
+  --background: #0B5ED7 !important;
+  --color: #ffffff !important;
+}
+
+ion-header ion-title {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+ion-header ion-button {
+  --color: #ffffff !important;
+}
+
+/* ---------- Containers & Cards ---------- */
+
+.tc-container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.tc-card {
+  background: #ffffff;
+  border: 1px solid var(--tc-border);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Typography ---------- */
+
+.tc-title {
+  font-weight: 700;
+  color: var(--tc-title);
+  margin: 0;
+}
+
+.tc-subtitle {
+  color: var(--tc-muted);
+  margin: 6px 0 0 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- Forms ---------- */
+
+.tc-field {
+  margin-top: var(--tc-gap);
+}
+
+.tc-field ion-item {
+  --background: #ffffff;
+  border: 1px solid var(--tc-border);
+  border-radius: 12px;
+  --highlight-height: 0;
+}
+
+.tc-field ion-label {
+  font-weight: 600;
+  color: #000000;
+}
+
+ion-input,
+ion-textarea {
+  --color: #000000;
+  --placeholder-color: #666666;
+}
+
+ion-input input,
+ion-textarea textarea {
+  color: #000000 !important;
+}
+
+/* ---------- Buttons ---------- */
+
+.tc-primary-btn {
+  margin-top: 18px;
+  height: 46px;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+/* ---------- Lists ---------- */
+
+.tc-list ion-item {
+  --background: #ffffff;
+  border: 1px solid var(--tc-border);
+  border-radius: 14px;
+  margin-bottom: 12px;
+  --min-height: 70px;
+}
+
+/* ---------- Status Badge ---------- */
+
+.tc-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(11, 94, 215, 0.12);
+  color: #0B5ED7;
+  border: 1px solid rgba(11, 94, 215, 0.25);
+}
+
+/* Header Telecontrol - FORÇADO no background real do toolbar */
+.tc-header {
+  background: #0B5ED7 !important;
+}
+
+.tc-toolbar {
+  --color: #ffffff !important;
+}
+
+/* Pinta o background real (shadow part) */
+.tc-toolbar::part(background) {
+  background: #0B5ED7 !important;
+}
+
+/* Texto */
+.tc-toolbar ion-title {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+.tc-toolbar ion-button {
+  --color: #ffffff !important;
+}
+
+/* Melhor “grid” vertical */
+.tc-stack > * + * {
+  margin-top: 14px;
+}
+
+/* Itens com aparência de app */
+ion-item {
+  --inner-padding-end: 12px;
+  --padding-start: 12px;
+}
+
+/* Textarea mais “app” */
+ion-textarea {
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
